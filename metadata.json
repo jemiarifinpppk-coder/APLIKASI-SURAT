@@ -1,0 +1,6 @@
+{
+  "name": "Generator Surat Otomatis Madrasah",
+  "description": "Aplikasi pembuat surat dinas, surat tugas, dan SK otomatis madrasah sesuai standar Tata Naskah Dinas PMA Kementerian Agama.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom fonts for Indonesian official Kemenag letters */
+.font-bookman {
+  font-family: "Bookman Old Style", "URW Bookman L", "Georgia", serif;
+}
+
+.font-times {
+  font-family: "Times New Roman", Times, "Nimbus Roman No9 L", serif;
+}
+
+.font-arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-lora {
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* Kemenag Double Kop Border */
+.kemenag-kop-line {
+  border-bottom: 3px solid #000;
+  position: relative;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+.kemenag-kop-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  border-bottom: 1px solid #000;
+}
+
+/* Paper Size Sheet Simulations */
+.sheet-page {
+  background: #ffffff;
+  position: relative;
+  box-sizing: border-box;
+  color: #000000;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.a4-paper {
+  width: 210mm;
+  min-height: 297mm;
+}
+
+.f4-paper {
+  width: 215mm;
+  min-height: 330mm;
+}
+
+.letter-paper {
+  width: 215.9mm;
+  min-height: 279.4mm;
+}
+
+/* Margin Presets (Standard Kemenag: Atas 20mm, Kiri 25mm, Kanan 20mm, Bawah 20mm) */
+.margin-standar {
+  padding: 20mm 20mm 20mm 25mm;
+}
+
+.margin-kompak {
+  padding: 15mm 15mm 15mm 20mm;
+}
+
+.margin-lebar {
+  padding: 25mm 25mm 25mm 30mm;
+}
+
+/* Print Stylesheet */
+@media print {
+  @page {
+    margin: 0 !important;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #root,
+  main,
+  section,
+  .print-reset-container,
+  .preview-wrapper,
+  .preview-container,
+  .preview-zoom-wrapper {
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .no-print, 
+  nav, 
+  header, 
+  aside, 
+  button, 
+  .print-hide,
+  .no-print * {
+    display: none !important;
+  }
+
+  .print-area,
+  #document-printable {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+  }
+
+  .sheet-page {
+    display: block !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .sheet-page:last-child {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Exact physical dimensions minus 1mm tolerance to avoid spurious blank page 2 in Chrome */
+  .a4-paper {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    min-height: 296mm !important;
+  }
+
+  .f4-paper {
+    width: 215mm !important;
+    max-width: 215mm !important;
+    min-height: 329mm !important;
+  }
+
+  .letter-paper {
+    width: 215.9mm !important;
+    max-width: 215.9mm !important;
+    min-height: 278mm !important;
+  }
+
+  /* Keep authentic Kemenag paper margins during print */
+  .margin-standar {
+    padding: 20mm 20mm 20mm 25mm !important;
+  }
+
+  .margin-kompak {
+    padding: 15mm 15mm 15mm 20mm !important;
+  }
+
+  .margin-lebar {
+    padding: 25mm 25mm 25mm 30mm !important;
+  }
+
+  .page-break,
+  .break-before-page {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+
+  .avoid-break,
+  .signature-block,
+  tr,
+  table {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
